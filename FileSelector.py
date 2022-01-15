@@ -16,5 +16,5 @@ def selectFile():
         event, values = window.Read()
         if event is None:
             break
-        #return selected file
+        #return selected filename
         return event
