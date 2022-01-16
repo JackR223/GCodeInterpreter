@@ -10,6 +10,7 @@ import Commands.G3CCWInterpol as G3
 #variable setup
 currCommand = ""
 abortRun = False    #abort current run and return to home coordinate if something goes wrong
+currPosition = [0, 0, 0]
 
 #code for dealing with motor control:
 
@@ -33,7 +34,7 @@ for command in commands:
 
     if "G0 " in currCommand or "G00 " in currCommand:
         #run G0 command
-        G0.test()
+        G0.interpolate(command, currPosition)
     elif "G1 " in currCommand or "G01 " in currCommand:
         #run G1 command
         G1.test()
