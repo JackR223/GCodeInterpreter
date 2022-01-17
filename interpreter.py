@@ -1,5 +1,10 @@
 #at the moment, only working in coordinates, need to translate from coordinates to mm/step
 
+#need to also add some sort of cancel function
+
+
+
+
 import ZeroMachine
 import FileSelector
 import GetXYZF
@@ -45,10 +50,10 @@ for command in commands:
         G1.interpolate(targetPosition, currPosition)
     elif "G2 " in currCommand or "G02 " in currCommand:
         #run G2 command
-        G2.test()
+        G2.interpolate(command, currPosition)
     elif "G3 " in currCommand or "G03 " in currCommand:
         #run G3 command
-        G3.test()
+        G3.interpolate(command, currPosition)
 
 #close command read as we have reached end of file:
 commands.close()
