@@ -1,3 +1,5 @@
+#at the moment, only working in coordinates, need to translate from coordinates to mm/step
+
 import ZeroMachine
 import FileSelector
 
@@ -37,7 +39,7 @@ for command in commands:
         G0.interpolate(command, currPosition)
     elif "G1 " in currCommand or "G01 " in currCommand:
         #run G1 command
-        G1.test()
+        G1.interpolate(command, currPosition)
     elif "G2 " in currCommand or "G02 " in currCommand:
         #run G2 command
         G2.test()

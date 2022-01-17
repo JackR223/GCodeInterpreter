@@ -22,8 +22,6 @@ def interpolate(cmdIn, currPosition):
         elif value.startswith("Z"):
             endPointZ = float(value[1:len(value)])
 
-    #use trigonometry to interpolate points on the path between start and end point:
-    #work in 2d first (X,Y):
 
     n = 10 #number of points on line to interpolate
 
