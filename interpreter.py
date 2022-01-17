@@ -2,6 +2,7 @@
 
 import ZeroMachine
 import FileSelector
+import GetXYZF
 
 #import gcode commands
 import Commands.G0RapidPosition as G0
@@ -12,7 +13,7 @@ import Commands.G3CCWInterpol as G3
 #variable setup
 currCommand = ""
 abortRun = False    #abort current run and return to home coordinate if something goes wrong
-currPosition = [0, 0, 0]
+currPosition = [0, 0, 0, 0] #xyzf (xyz are coordinates, f is feed speed)
 
 #code for dealing with motor control:
 
@@ -36,10 +37,12 @@ for command in commands:
 
     if "G0 " in currCommand or "G00 " in currCommand:
         #run G0 command
-        G0.interpolate(command, currPosition)
+        targetPosition = GetXYZF.getXYZF(command, currPosition)
+        G0.interpolate(targetPosition, currPosition)
     elif "G1 " in currCommand or "G01 " in currCommand:
         #run G1 command
-        G1.interpolate(command, currPosition)
+        targetPosition = GetXYZF.getXYZF(command, currPosition)
+        G1.interpolate(targetPosition, currPosition)
     elif "G2 " in currCommand or "G02 " in currCommand:
         #run G2 command
         G2.test()
