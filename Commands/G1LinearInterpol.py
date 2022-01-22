@@ -1,5 +1,5 @@
 import Commands.StraightLineInterpol #needs this when run from interpreter.py
-import StraightLineInterpol
+#import StraightLineInterpol
 
 def interpolate(targetPosition, currPosition):
 
