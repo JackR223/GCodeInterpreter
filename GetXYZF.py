@@ -1,6 +1,6 @@
 def getXYZF(cmdIn, currPosition):
 
-    values = cmdIn.split
+    values = cmdIn.split()
     
     x = currPosition[0]
     y = currPosition[1]
