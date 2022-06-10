@@ -5,7 +5,9 @@ layout = [  [sg.Text("Centre machine: ")],
             [sg.Button("Forward")],
             [sg.Button("Left"), sg.Button("Right")],
             [sg.Button("Back")],
+            [sg.Text("")],
             [sg.Button("Up"), sg.Button("Down")],
+            [sg.Text("")],
             [sg.Button("OK")],
             [sg.Text("Lower tool until contact is made with face of material.\nYou can use a single sheet of paper between the tool and material face, in order to ensure correct spacing.")]]
 
