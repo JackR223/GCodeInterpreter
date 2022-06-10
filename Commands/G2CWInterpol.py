@@ -1,7 +1,6 @@
 import math
 
 def interpolate(cmdIn, currPosition, mmPerStep):
-    #print(currPosition)
 
     #array to store points for program to pass through in
     points = []

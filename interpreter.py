@@ -45,19 +45,16 @@ try:#can perform interupt at any time and return machine to zero position
             currPosition = StepperController.move(path, currPosition)
         elif "G1 " in currCommand or "G01 " in currCommand: #STRAIGHT LINE
             #run G1 command
-            #print(command)
             targetPosition = GetXYZF.getXYZF(command, currPosition, mmPerStep)
             path = G1.interpolate(targetPosition, currPosition)
-            #print(path)
             currPosition = StepperController.move(path, currPosition)
-            #print(currPosition)
         elif "G2 " in currCommand or "G02 " in currCommand: #CLOCKWISE CURVE
             #run G2 command
             path = G2.interpolate(command, currPosition, mmPerStep)
             currPosition = StepperController.move(path, currPosition)
         elif "G3 " in currCommand or "G03 " in currCommand: #ANTI-CLOCKWISE CURVE
             #run G3 command
-            path = G3.interpolate(command, currPosition)
+            path = G3.interpolate(command, currPosition, mmPerStep)
             currPosition = StepperController.move(path, currPosition)
 
     #close command read as we have reached end of file:
