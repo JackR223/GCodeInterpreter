@@ -1,4 +1,4 @@
-def getXYZF(cmdIn, currPosition):
+def getXYZF(cmdIn, currPosition, mmPerStep):
 
     values = cmdIn.split()
     
@@ -10,11 +10,11 @@ def getXYZF(cmdIn, currPosition):
     #pass values into variables
     for value in values:
         if value.startswith("X"):
-            x = float(value[1:len(value)])
+            x = float(value[1:len(value)])/mmPerStep
         elif value.startswith("Y"):
-            y = float(value[1:len(value)])
+            y = float(value[1:len(value)])/mmPerStep
         elif value.startswith("Z"):
-            z = float(value[1:len(value)])
+            z = float(value[1:len(value)])/mmPerStep
         elif value.startswith("F"):
             f = float(value[1:len(value)])
             
